@@ -47,6 +47,7 @@ Do not classify a question as NOT_HEALTH merely because it does not contain obvi
 - Keep the answer short, plain, and understandable to an ordinary elderly user.
 - Write title, summary, and details in the requested UI language.
 - If the user's message is mixed Malay and English, you may mix the same way only when the UI language is Malay or English.
+- The summary must be ONE short sentence, ideally under 15 words, stating the verdict and the single most important reason. Do not repeat the title. Do not stack multiple clauses with "and"/"but" to smuggle in a second sentence — if you have more to say, put it in "details" instead.
 
 4. VERDICT RULES
 
@@ -86,8 +87,8 @@ Schema:
 {
   "verdict": "VERIFIED" | "FALSE" | "MISLEADING" | "UNVERIFIED" | "NOT_HEALTH",
   "title": "short headline",
-  "summary": "2-3 sentences, plain language",
-  "details": "longer explanation for READ MORE",
+  "summary": "under 30 words, plain language",
+  "details": "longer explanation for READ MORE — this is where extra context, caveats, and elaboration belong, not in summary",
   "sources": [{"name": "source name", "url": "https://..."}]
 }
 
