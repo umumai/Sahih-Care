@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="description" content="SahihCare — semak kesahihan mesej kesihatan WhatsApp sebelum kongsi atau percaya." />
+  <title>SahihCare</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              deep: "#0f766e",
+              bright: "#14b8a6",
+              mint: "#f0fdfa",
+            },
+          },
+          fontFamily: {
+            sans: [
+              "system-ui",
+              "-apple-system",
+              "BlinkMacSystemFont",
+              '"Segoe UI"',
+              "Roboto",
+              '"Noto Sans"',
+              "sans-serif",
+            ],
+          },
+        },
+      },
+    };
+  </script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="min-h-screen">
+  <a
+    href="#main"
+    class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:left-3 focus:top-3 focus:rounded-lg focus:bg-white focus:px-3 focus:py-2 focus:text-brand-deep"
+    data-i18n="skip"
+  >
+    Langkau ke kandungan
+  </a>
+
+  <div id="app" class="mx-auto flex min-h-screen flex-col bg-brand-mint shadow-2xl">
+    <header class="header-bar sticky top-0 z-40 px-3 py-2.5 text-white">
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex min-w-0 items-center gap-2">
+          <img
+            src="ASSET/LOGO/SahihCare.png"
+            alt="SahihCare"
+            class="header-logo"
+          />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <div class="lang-wrap">
+            <button
+              id="langBtn"
+              type="button"
+              class="flag-btn"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              data-i18n-aria="chooseLanguage"
+              aria-label="Pilih bahasa"
+            >
+              <img id="langFlag" src="ASSET/LOGO/melayu.png" alt="" />
+            </button>
+            <div id="langMenu" class="lang-menu hidden" role="listbox">
+              <button type="button" class="flag-btn" data-lang="ms" role="option" aria-label="Bahasa Melayu">
+                <img src="ASSET/LOGO/melayu.png" alt="" />
+              </button>
+              <button type="button" class="flag-btn" data-lang="en" role="option" aria-label="English">
+                <img src="ASSET/LOGO/english.png" alt="" />
+              </button>
+              <button type="button" class="flag-btn" data-lang="zh" role="option" aria-label="中文">
+                <img src="ASSET/LOGO/mandarin.png" alt="" />
+              </button>
+              <button type="button" class="flag-btn" data-lang="ar" role="option" aria-label="العربية">
+                <img src="ASSET/LOGO/arab.png" alt="" />
+              </button>
+              <button type="button" class="flag-btn" data-lang="ta" role="option" aria-label="தமிழ்">
+                <img src="ASSET/LOGO/tamil.png" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <div class="glass-pill flex items-center rounded-full px-1 py-0.5 text-white" role="group" data-i18n-aria="textSize" aria-label="Saiz teks">
+            <button
+              id="scaleDown"
+              type="button"
+              class="flex h-10 w-10 items-center justify-center rounded-full text-xl font-bold"
+              data-i18n-aria="smallerText"
+              aria-label="Kecilkan teks"
+            >
+              −
+            </button>
+            <span id="scaleLabel" class="min-w-[3.2rem] text-center text-sm font-bold tabular-nums">100%</span>
+            <button
+              id="scaleUp"
+              type="button"
+              class="flex h-10 w-10 items-center justify-center rounded-full text-xl font-bold"
+              data-i18n-aria="largerText"
+              aria-label="Besarkan teks"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="flex flex-1 flex-col">
+      <section class="hero-photo relative px-4 pb-2 pt-5" data-i18n-aria="home" aria-label="Utama">
+        <div class="mb-10 flex justify-center pt-6">
+          <div class="mode-pill flex items-center rounded-full px-2 py-1" role="tablist" data-i18n-aria="switchView" aria-label="Tukar paparan">
+            <button
+              id="tabNews"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              class="flex h-11 w-12 items-center justify-center rounded-full text-xl text-slate-400"
+              data-i18n-aria="healthNews"
+              aria-label="Berita kesihatan"
+            >
+              <i class="fa-regular fa-newspaper" aria-hidden="true"></i>
+            </button>
+            <span class="h-6 w-px bg-slate-300" aria-hidden="true"></span>
+            <button
+              id="tabCheck"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              class="flex h-11 w-12 items-center justify-center rounded-full text-xl text-brand-deep"
+              data-i18n-aria="checkMessage"
+              aria-label="Semak mesej"
+            >
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="checkHero" class="pb-2 text-center">
+          <h1 class="text-[1.85rem] font-extrabold leading-tight text-brand-bright" data-i18n="heroTitle">
+            Got Questions?
+          </h1>
+          <p class="mt-1 text-[0.98rem] font-semibold leading-snug text-brand-deep" data-i18n="heroSubtitle">
+            Semak kesahihan mesej kesihatan anda di sini.
+          </p>
+        </div>
+
+        <div id="newsHero" class="hidden pb-2 text-center">
+          <h1 class="text-[1.85rem] font-extrabold leading-tight text-brand-bright" data-i18n="newsTitle">
+            Health News
+          </h1>
+          <p class="mt-1 text-[0.98rem] font-semibold leading-snug text-brand-deep" data-i18n="newsSubtitle">
+            Ikuti berita dan amaran kesihatan rasmi.
+          </p>
+        </div>
+      </section>
+
+      <div class="flex flex-1 flex-col px-4 pb-6">
+        <article
+          id="pastedPreview"
+          class="mb-3 hidden rounded-2xl border border-brand-deep/70 bg-[#e8f7f4] px-4 py-3"
+          data-i18n-aria="pastedMessage"
+          aria-label="Mesej yang ditampal"
+        >
+          <p class="mb-1 text-sm italic text-slate-500" data-i18n="pastedFrom">// Pasted from WhatsApp</p>
+          <p id="pastedText" class="max-h-40 overflow-y-auto whitespace-pre-wrap break-words font-medium leading-relaxed text-slate-800"></p>
+        </article>
+
+        <div
+          id="loadingState"
+          class="mb-4 hidden items-center justify-center gap-3 py-2 text-brand-deep"
+          role="status"
+          aria-live="polite"
+        >
+          <span class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-deep text-white">
+            <i class="fa-solid fa-hourglass-half spin-slow text-lg" aria-hidden="true"></i>
+          </span>
+          <p class="font-bold" data-i18n="loading">Fetching verified sources</p>
+        </div>
+
+        <article
+          id="resultCard"
+          class="mb-4 hidden rounded-2xl border-2 px-4 py-4"
+          aria-live="polite"
+        >
+          <h2 id="resultTitle" class="text-xl font-extrabold leading-snug"></h2>
+          <p id="resultBody" class="mt-2 font-medium leading-relaxed"></p>
+          <p id="resultMore" class="mt-2 hidden font-medium leading-relaxed"></p>
+
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="resultBadge" class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-extrabold tracking-wide text-white">
+                <span id="resultIconWrap" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                  <i id="resultIcon" class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </span>
+                <span id="resultLabel"></span>
+              </span>
+              <button
+                id="sourceBtn"
+                type="button"
+                class="rounded-full border border-slate-400 bg-white px-3 py-1.5 text-sm font-bold text-slate-700"
+                data-i18n="source"
+              >
+                SOURCE
+              </button>
+            </div>
+            <button
+              id="readMoreBtn"
+              type="button"
+              class="text-sm font-bold text-blue-700 underline-offset-2 hover:underline"
+              data-i18n="readMore"
+            >
+              READ MORE ▾
+            </button>
+          </div>
+
+          <div id="sourcePanel" class="mt-3 hidden rounded-xl bg-white/70 px-3 py-2 text-sm">
+            <p class="font-bold" data-i18n="officialSources">Sumber rasmi</p>
+            <ul id="sourceList" class="mt-1 list-disc space-y-1 pl-5"></ul>
+          </div>
+
+          <button
+            id="resetBtn"
+            type="button"
+            class="mt-4 w-full rounded-full border-2 border-brand-deep bg-white py-3 text-base font-extrabold text-brand-deep"
+          >
+            <i class="fa-solid fa-arrow-rotate-left mr-2" aria-hidden="true"></i>
+            <span data-i18n="checkAnother">Semak mesej lain</span>
+          </button>
+        </article>
+
+        <div id="searchPanel" class="mt-1">
+          <div id="searchBox" class="relative rounded-3xl border-2 border-brand-deep bg-[#d9f3ee] px-3 pb-16 pt-4">
+            <label for="claimInput" class="sr-only" data-i18n="pasteLabel">Tampal mesej kesihatan di sini</label>
+            <textarea
+              id="claimInput"
+              class="is-empty w-full resize-none bg-transparent px-2 py-2 font-semibold leading-relaxed text-slate-800 placeholder:font-bold"
+              rows="5"
+              placeholder="Paste it here"
+              data-i18n-placeholder="pastePlaceholder"
+              autocomplete="off"
+            ></textarea>
+            <div class="absolute bottom-3 left-3 right-3 flex gap-3">
+              <button
+                id="photoBtn"
+                type="button"
+                class="flex-1 rounded-full border border-brand-deep bg-white py-2.5 text-base font-bold text-brand-deep"
+                data-i18n="photo"
+              >
+                Photo
+              </button>
+              <button
+                id="pasteBtn"
+                type="button"
+                class="flex-1 rounded-full border border-brand-deep bg-white py-2.5 text-base font-bold text-brand-deep"
+                data-i18n="paste"
+              >
+                Paste
+              </button>
+            </div>
+            <input id="photoInput" type="file" accept="image/*" class="hidden" />
+          </div>
+
+          <button
+            id="checkBtn"
+            type="button"
+            class="check-btn mt-4 w-full rounded-full py-4 text-2xl font-black tracking-wide text-white"
+            data-i18n="check"
+          >
+            CHECK
+          </button>
+        </div>
+
+        <section id="infoPanels" class="mt-6 space-y-4" data-i18n-aria="healthInfo" aria-label="Maklumat kesihatan">
+          <article class="rounded-2xl border border-slate-700/70 bg-[#e8eef3] px-4 py-4">
+            <h2 class="text-lg font-extrabold text-slate-900" data-i18n="scamTitle">🚨 Amaran Scam Terkini</h2>
+            <ul id="scamList" class="mt-3 space-y-3 text-[0.95rem] font-medium leading-relaxed text-slate-800"></ul>
+          </article>
+
+          <article class="rounded-2xl border border-slate-700/70 bg-[#e8eef3] px-4 py-4">
+            <h2 class="text-lg font-extrabold text-slate-900" data-i18n="officialTitle">✅ Info Kesihatan Rasmi</h2>
+            <ul id="officialList" class="mt-3 space-y-3 text-[0.95rem] font-medium leading-relaxed text-slate-800"></ul>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer-bar h-4 w-full" aria-hidden="true"></footer>
+  </div>
+
+  <div
+    id="toast"
+    class="pointer-events-none fixed bottom-8 left-1/2 z-50 hidden w-[min(90%,24rem)] -translate-x-1/2 rounded-2xl bg-slate-900 px-4 py-3 text-center font-bold text-white shadow-xl"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
