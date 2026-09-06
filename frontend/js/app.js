@@ -26,13 +26,13 @@
       switchView: "Tukar paparan",
       healthNews: "Berita kesihatan",
       checkMessage: "Semak mesej",
-      heroTitle: "Got Questions?",
+      heroTitle: "Ada Soalan?",
       heroSubtitle: "Semak kesahihan mesej kesihatan anda di sini.",
-      newsTitle: "Health News",
-      newsSubtitle: "Ikuti berita dan amaran kesihatan rasmi.",
+      newsTitle: "Jangan Kongsi Dulu",
+      newsSubtitle: "Semak amaran scam & tip rasmi sebelum teruskan mesej WhatsApp.",
+      newsSource: "Sumber",
       pastedMessage: "Mesej yang ditampal",
-      pastedFrom: "// Ditampal dari WhatsApp",
-      loading: "Fetching verified sources",
+      loading: "Mencari sumber yang disahkan",
       source: "SOURCE",
       readMore: "READ MORE ▾",
       readLess: "READ LESS ▴",
@@ -44,8 +44,6 @@
       paste: "Paste",
       check: "CHECK",
       healthInfo: "Maklumat kesihatan",
-      scamTitle: "🚨 Amaran Scam Terkini",
-      officialTitle: "✅ Info Kesihatan Rasmi",
       empty: "Sila tampal atau taip mesej kesihatan dahulu.",
       clipboardUnsupported: "Tidak dapat baca papan keratan. Tekan lama dalam kotak dan pilih Tampal.",
       clipboardEmpty: "Papan keratan kosong. Salin mesej WhatsApp dahulu.",
@@ -59,16 +57,6 @@
         UNVERIFIED: "TIDAK PASTI",
         NOT_HEALTH: "BUKAN KESIHATAN",
       },
-      scamItems: [
-        "<strong>Gelang Kuantum Nano</strong> — mesej WhatsApp kononnya sembuhkan kencing manis dalam 3 hari dengan harga RM150. Ini scam. Jangan pindah wang.",
-        "<strong>WhatsApp “dari KKM”</strong> — KKM tidak menghantar pautan pendek atau minta OTP melalui WhatsApp. Abaikan dan padam.",
-        "<strong>Ubat ajaib kanser / HIV</strong> — tiada produk viral dalam kumpulan yang diluluskan sebagai penawar. Dapatkan rawatan di fasiliti kesihatan.",
-      ],
-      officialItems: [
-        'Semak maklumat di laman <a class="font-bold text-blue-700 underline" href="https://www.moh.gov.my" target="_blank" rel="noopener noreferrer">moh.gov.my</a> atau <a class="font-bold text-blue-700 underline" href="https://myhealth.moh.gov.my" target="_blank" rel="noopener noreferrer">MyHealth</a>.',
-        "Demam denggi: buang air bertakung, dapatkan rawatan awal. Daun betik <em>bukan</em> penawar denggi.",
-        "Jangan kongsi mesej kesihatan yang tiada nama pengirim, tarikh, atau pautan rasmi KKM / WHO.",
-      ],
     },
     en: {
       skip: "Skip to content",
@@ -82,10 +70,10 @@
       checkMessage: "Check a message",
       heroTitle: "Got Questions?",
       heroSubtitle: "Verify your health message here.",
-      newsTitle: "Health News",
-      newsSubtitle: "Follow official health news and alerts.",
+      newsTitle: "Don't Share Yet",
+      newsSubtitle: "Check scam alerts & official tips before forwarding WhatsApp health messages.",
+      newsSource: "Source",
       pastedMessage: "Pasted message",
-      pastedFrom: "// Pasted from WhatsApp",
       loading: "Fetching verified sources",
       source: "SOURCE",
       readMore: "READ MORE ▾",
@@ -98,8 +86,6 @@
       paste: "Paste",
       check: "CHECK",
       healthInfo: "Health information",
-      scamTitle: "🚨 Latest scam alerts",
-      officialTitle: "✅ Official health info",
       empty: "Please paste or type a health message first.",
       clipboardUnsupported: "Cannot read the clipboard. Long-press in the box and choose Paste.",
       clipboardEmpty: "Clipboard is empty. Copy a WhatsApp message first.",
@@ -113,16 +99,6 @@
         UNVERIFIED: "UNVERIFIED",
         NOT_HEALTH: "NOT HEALTH",
       },
-      scamItems: [
-        "<strong>Quantum Nano bracelet</strong> — WhatsApp messages claim it cures diabetes in 3 days for RM150. This is a scam. Do not transfer money.",
-        "<strong>WhatsApp “from KKM”</strong> — KKM does not send short links or ask for OTPs on WhatsApp. Ignore and delete.",
-        "<strong>Miracle cancer / HIV cures</strong> — no viral group product is an approved cure. Get care at a health facility.",
-      ],
-      officialItems: [
-        'Check facts at <a class="font-bold text-blue-700 underline" href="https://www.moh.gov.my" target="_blank" rel="noopener noreferrer">moh.gov.my</a> or <a class="font-bold text-blue-700 underline" href="https://myhealth.moh.gov.my" target="_blank" rel="noopener noreferrer">MyHealth</a>.',
-        "Dengue: remove standing water and seek care early. Papaya leaves are <em>not</em> a dengue cure.",
-        "Do not share health messages with no sender, date, or official KKM / WHO link.",
-      ],
     },
     zh: {
       skip: "跳到正文",
@@ -136,10 +112,10 @@
       checkMessage: "核查讯息",
       heroTitle: "有疑问？",
       heroSubtitle: "在这里核查健康讯息是否属实。",
-      newsTitle: "健康新闻",
-      newsSubtitle: "关注官方健康新闻与警示。",
+      newsTitle: "先别转发",
+      newsSubtitle: "转发健康讯息前，先看诈骗警示与官方提示。",
+      newsSource: "来源",
       pastedMessage: "已粘贴的讯息",
-      pastedFrom: "// 从 WhatsApp 粘贴",
       loading: "正在查找可靠来源",
       source: "来源",
       readMore: "阅读更多 ▾",
@@ -152,8 +128,6 @@
       paste: "粘贴",
       check: "核查",
       healthInfo: "健康资讯",
-      scamTitle: "🚨 最新诈骗警示",
-      officialTitle: "✅ 官方健康资讯",
       empty: "请先粘贴或输入健康讯息。",
       clipboardUnsupported: "无法读取剪贴板。请在输入框长按并选择粘贴。",
       clipboardEmpty: "剪贴板是空的。请先复制 WhatsApp 讯息。",
@@ -167,16 +141,6 @@
         UNVERIFIED: "无法确认",
         NOT_HEALTH: "非健康问题",
       },
-      scamItems: [
-        "<strong>量子纳米手环</strong> — WhatsApp 声称 RM150 可在 3 天内治好糖尿病。这是诈骗。请勿转账。",
-        "<strong>自称卫生部 KKM 的 WhatsApp</strong> — 卫生部不会通过 WhatsApp 发送短链接或索取 OTP。请忽略并删除。",
-        "<strong>神药治疗癌症 / HIV</strong> — 群组热销产品并非获批疗法。请到正规医疗机构就诊。",
-      ],
-      officialItems: [
-        '请到 <a class="font-bold text-blue-700 underline" href="https://www.moh.gov.my" target="_blank" rel="noopener noreferrer">moh.gov.my</a> 或 <a class="font-bold text-blue-700 underline" href="https://myhealth.moh.gov.my" target="_blank" rel="noopener noreferrer">MyHealth</a> 查证。',
-        "登革热：清除积水并尽早就医。木瓜叶<em>不能</em>治愈登革热。",
-        "不要转发没有寄件人、日期或卫生部 / 世卫官方链接的健康讯息。",
-      ],
     },
     ar: {
       skip: "تخطي إلى المحتوى",
@@ -190,10 +154,10 @@
       checkMessage: "تحقق من الرسالة",
       heroTitle: "لديك سؤال؟",
       heroSubtitle: "تحقق من صحة رسالة صحية هنا.",
-      newsTitle: "أخبار الصحة",
-      newsSubtitle: "تابع الأخبار والتحذيرات الصحية الرسمية.",
+      newsTitle: "لا تشارك بعد",
+      newsSubtitle: "تحقق من تحذيرات الاحتيال والنصائح الرسمية قبل إعادة إرسال رسائل واتساب الصحية.",
+      newsSource: "المصدر",
       pastedMessage: "الرسالة الملصقة",
-      pastedFrom: "// ملصق من واتساب",
       loading: "جاري جلب مصادر موثوقة",
       source: "المصدر",
       readMore: "اقرأ المزيد ▾",
@@ -206,8 +170,6 @@
       paste: "لصق",
       check: "تحقق",
       healthInfo: "معلومات صحية",
-      scamTitle: "🚨 تحذيرات الاحتيال",
-      officialTitle: "✅ معلومات صحية رسمية",
       empty: "يرجى لصق أو كتابة رسالة صحية أولاً.",
       clipboardUnsupported: "تعذر قراءة الحافظة. اضغط مطولاً في الصندوق واختر لصق.",
       clipboardEmpty: "الحافظة فارغة. انسخ رسالة واتساب أولاً.",
@@ -221,16 +183,6 @@
         UNVERIFIED: "غير مؤكد",
         NOT_HEALTH: "ليس صحياً",
       },
-      scamItems: [
-        "<strong>سوار كوانتم نانو</strong> — رسائل واتساب تزعم أنه يشفي السكري خلال 3 أيام مقابل 150 رينغيت. هذا احتيال. لا تحول أموالاً.",
-        "<strong>واتساب «من وزارة الصحة»</strong> — الوزارة لا ترسل روابط قصيرة ولا تطلب رمز OTP عبر واتساب. تجاهل واحذف.",
-        "<strong>علاج سحري للسرطان / HIV</strong> — لا يوجد منتج في المجموعات معتمد كعلاج. راجع منشأة صحية.",
-      ],
-      officialItems: [
-        'تحقق من المعلومات عبر <a class="font-bold text-blue-700 underline" href="https://www.moh.gov.my" target="_blank" rel="noopener noreferrer">moh.gov.my</a> أو <a class="font-bold text-blue-700 underline" href="https://myhealth.moh.gov.my" target="_blank" rel="noopener noreferrer">MyHealth</a>.',
-        "حمى الضنك: أزل المياه الراكدة واطلب العلاج مبكراً. أوراق البابايا <em>ليست</em> علاجاً.",
-        "لا تشارك رسائل صحية بلا اسم مرسل أو تاريخ أو رابط رسمي لوزارة الصحة / منظمة الصحة العالمية.",
-      ],
     },
     ta: {
       skip: "உள்ளடக்கத்திற்குச் செல்",
@@ -244,10 +196,10 @@
       checkMessage: "செய்தியைச் சரிபார்",
       heroTitle: "கேள்வி உள்ளதா?",
       heroSubtitle: "உங்கள் சுகாதாரச் செய்தியை இங்கே சரிபாருங்கள்.",
-      newsTitle: "சுகாதாரச் செய்திகள்",
-      newsSubtitle: "அதிகாரப்பூர்வ சுகாதாரச் செய்திகளையும் எச்சரிக்கைகளையும் பின்தொடருங்கள்.",
+      newsTitle: "இன்னும் பகிர வேண்டாம்",
+      newsSubtitle: "வாட்ஸ்அப் சுகாதாரச் செய்தியைப் பகிரும் முன் மோசடி எச்சரிக்கையையும் அதிகாரப்பூர்வ குறிப்புகளையும் பாருங்கள்.",
+      newsSource: "ஆதாரம்",
       pastedMessage: "ஒட்டப்பட்ட செய்தி",
-      pastedFrom: "// வாட்ஸ்அப்பிலிருந்து ஒட்டப்பட்டது",
       loading: "சரிபார்க்கப்பட்ட ஆதாரங்களைப் பெறுகிறது",
       source: "ஆதாரம்",
       readMore: "மேலும் படி ▾",
@@ -260,8 +212,6 @@
       paste: "ஒட்டு",
       check: "சரிபார்",
       healthInfo: "சுகாதாரத் தகவல்",
-      scamTitle: "🚨 சமீபத்திய மோசடி எச்சரிக்கை",
-      officialTitle: "✅ அதிகாரப்பூர்வ சுகாதாரத் தகவல்",
       empty: "முதலில் ஒரு சுகாதாரச் செய்தியை ஒட்டவும் அல்லது தட்டச்சு செய்யவும்.",
       clipboardUnsupported: "கிளிப்போர்டைப் படிக்க முடியவில்லை. பெட்டியில் நீண்ட நேரம் அழுத்தி ஒட்டு என்பதைத் தேர்வு செய்யவும்.",
       clipboardEmpty: "கிளிப்போர்டு காலியாக உள்ளது. முதலில் வாட்ஸ்அப் செய்தியை நகலெடுக்கவும்.",
@@ -275,18 +225,124 @@
         UNVERIFIED: "உறுதிப்படுத்தப்படவில்லை",
         NOT_HEALTH: "சுகாதாரம் அல்ல",
       },
-      scamItems: [
-        "<strong>குவாண்டம் நானோ வளையல்</strong> — 3 நாளில் நீரிழிவைக் குணப்படுத்தும் என RM150-க்கு வாட்ஸ்அப் செய்தி. இது மோசடி. பணம் அனுப்ப வேண்டாம்.",
-        "<strong>KKM வாட்ஸ்அப்</strong> — சுகாதார அமைச்சு வாட்ஸ்அப்பில் குறுகிய இணைப்பு அல்லது OTP கேட்காது. புறக்கணித்து நீக்கவும்.",
-        "<strong>புற்றுநோய் / HIV அதிசய மருந்து</strong> — குழுவில் விற்கும் பொருள் அங்கீகரிக்கப்பட்ட சிகிச்சை அல்ல. மருத்துவமனைக்குச் செல்லுங்கள்.",
-      ],
-      officialItems: [
-        '<a class="font-bold text-blue-700 underline" href="https://www.moh.gov.my" target="_blank" rel="noopener noreferrer">moh.gov.my</a> அல்லது <a class="font-bold text-blue-700 underline" href="https://myhealth.moh.gov.my" target="_blank" rel="noopener noreferrer">MyHealth</a> இல் தகவலைச் சரிபாருங்கள்.',
-        "டெங்கு: தேங்கிய நீரை அகற்றி உடனடி சிகிச்சை பெறுங்கள். பப்பாளி இலை <em>குணப்படுத்தாது</em>.",
-        "அனுப்புநர் பெயர், தேதி அல்லது KKM / WHO இணைப்பு இல்லாத சுகாதாரச் செய்திகளைப் பகிர வேண்டாம்.",
-      ],
     },
   };
+
+
+  var TAG_LABELS = {
+    alert: { ms: "AMARAN", en: "ALERT", zh: "警示", ar: "تحذير", ta: "எச்சரிக்கை" },
+    misleading: { ms: "MENGELIRUKAN", en: "MISLEADING", zh: "误导", ar: "مضلل", ta: "தவறானது" },
+    verified: { ms: "DISAHKAN", en: "VERIFIED", zh: "属实", ar: "موثق", ta: "உறுதி" },
+    guide: { ms: "PANDUAN", en: "GUIDE", zh: "指南", ar: "إرشاد", ta: "வழிகாட்டி" },
+  };
+
+  var NEWS_POSTS = [
+    {
+      id: "quantum",
+      tag: "alert",
+      image: "ASSET/news-quantum-pendant.png",
+      sourceName: "KKM",
+      sourceUrl: "https://www.moh.gov.my",
+      title: {
+        ms: "Gelang Kuantum? Itu scam.",
+        en: "Quantum bracelet? It's a scam.",
+        zh: "量子手环？这是诈骗。",
+        ar: "سوار كوانتم؟ هذا احتيال.",
+        ta: "குவாண்டம் வளையலா? இது மோசடி.",
+      },
+      caption: {
+        ms: "Mesej WhatsApp yang janji sembuhkan kencing manis dalam 3 hari dengan harga RM150 adalah tipu. KKM tidak luluskan produk sebegini. Jangan pindah wang.",
+        en: "WhatsApp messages promising a 3-day diabetes cure for RM150 are fraud. KKM has not approved products like this. Do not transfer money.",
+        zh: "声称 RM150 可在 3 天内治好糖尿病的 WhatsApp 讯息是诈骗。卫生部未批准此类产品。请勿转账。",
+        ar: "رسائل واتساب التي تعد بعلاج السكري خلال 3 أيام مقابل 150 رينغيت احتيال. الوزارة لم تعتمد منتجات كهذه. لا تحول أموالاً.",
+        ta: "RM150-க்கு 3 நாளில் நீரிழிவு குணமாகும் எனும் வாட்ஸ்அப் செய்தி மோசடி. KKM இதை அங்கீகரிக்கவில்லை. பணம் அனுப்ப வேண்டாம்.",
+      },
+    },
+    {
+      id: "fake-kkm",
+      tag: "alert",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70",
+      sourceName: "KKM",
+      sourceUrl: "https://www.moh.gov.my",
+      title: {
+        ms: "WhatsApp “dari KKM”? Padam.",
+        en: "WhatsApp “from KKM”? Delete it.",
+        zh: "自称“卫生部”的 WhatsApp？删掉。",
+        ar: "واتساب «من الوزارة»؟ احذفه.",
+        ta: "KKM வாட்ஸ்அப்பா? நீக்குங்கள்.",
+      },
+      caption: {
+        ms: "KKM tidak menghantar pautan pendek atau minta OTP melalui WhatsApp. Abaikan, padam, dan jangan klik apa-apa.",
+        en: "KKM does not send short links or ask for OTPs on WhatsApp. Ignore, delete, and do not click anything.",
+        zh: "卫生部不会通过 WhatsApp 发送短链接或索取 OTP。请忽略、删除，不要点击任何内容。",
+        ar: "الوزارة لا ترسل روابط قصيرة ولا تطلب رمز OTP عبر واتساب. تجاهل واحذف ولا تضغط أي شيء.",
+        ta: "KKM வாட்ஸ்அப்பில் குறுகிய இணைப்பு அல்லது OTP கேட்காது. புறக்கணித்து நீக்கவும், எதையும் கிளிக் செய்ய வேண்டாம்.",
+      },
+    },
+    {
+      id: "papaya",
+      tag: "misleading",
+      image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=900&q=70",
+      sourceName: "MyHealth",
+      sourceUrl: "https://myhealth.moh.gov.my",
+      title: {
+        ms: "Daun betik bukan penawar denggi.",
+        en: "Papaya leaves are not a dengue cure.",
+        zh: "木瓜叶治不好登革热。",
+        ar: "أوراق البابايا ليست علاجاً لحمى الضنك.",
+        ta: "பப்பாளி இலை டெங்குக்கு மருந்து அல்ல.",
+      },
+      caption: {
+        ms: "Jus daun betik tidak gantikan rawatan klinik. Demam denggi boleh berbahaya — dapatkan rawatan awal dan buang air bertakung.",
+        en: "Papaya leaf juice does not replace clinic care. Dengue can turn dangerous — seek care early and remove standing water.",
+        zh: "木瓜叶汁不能代替诊所治疗。登革热可能迅速恶化——请尽早就医并清除积水。",
+        ar: "عصير أوراق البابايا لا يغني عن العيادة. حمى الضنك قد تشتد — اطلب العلاج مبكراً وأزل المياه الراكدة.",
+        ta: "பப்பாளி இலைச் சாறு கிளினிக் சிகிச்சைக்கு மாற்றாகாது. டெங்கு ஆபத்தானது — உடனடி சிகிச்சை பெறுங்கள், தேங்கிய நீரை அகற்றுங்கள்.",
+      },
+    },
+    {
+      id: "handwash",
+      tag: "verified",
+      image: "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=70",
+      sourceName: "WHO",
+      sourceUrl: "https://www.who.int/health-topics/hand-hygiene",
+      title: {
+        ms: "Cuci tangan — tip yang benar.",
+        en: "Handwashing — a tip that is true.",
+        zh: "洗手——这是靠谱提示。",
+        ar: "غسل اليدين — نصيحة صحيحة.",
+        ta: "கைகழுவுதல் — உண்மையான குறிப்பு.",
+      },
+      caption: {
+        ms: "KKM dan WHO sahkan cuci tangan dengan sabun sekurang-kurangnya 20 saat membantu cegah jangkitan. Amalan mudah, bukti kukuh.",
+        en: "KKM and WHO confirm washing hands with soap for at least 20 seconds helps prevent infections. Simple habit, strong evidence.",
+        zh: "卫生部与世卫确认用肥皂洗手至少 20 秒有助预防感染。习惯简单，证据充分。",
+        ar: "تؤكد الوزارة ومنظمة الصحة العالمية أن غسل اليدين بالصابون لمدة 20 ثانية على الأقل يقلل العدوى. عادة بسيطة ودليل قوي.",
+        ta: "KKM மற்றும் WHO சோப்புடன் குறைந்தது 20 வினாடிகள் கைகழுவுவது தொற்றைத் தடுக்க உதவும் என உறுதிப்படுத்துகின்றனர்.",
+      },
+    },
+    {
+      id: "verify-share",
+      tag: "guide",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=70",
+      sourceName: "MyHealth",
+      sourceUrl: "https://myhealth.moh.gov.my",
+      title: {
+        ms: "Sebelum kongsi — semak 3 perkara.",
+        en: "Before sharing — check 3 things.",
+        zh: "转发前先查这 3 点。",
+        ar: "قبل المشاركة — تحقق من 3 أشياء.",
+        ta: "பகிரும் முன் — 3 விஷயத்தைச் சரிபாருங்கள்.",
+      },
+      caption: {
+        ms: "Ada nama pengirim? Ada tarikh? Ada pautan rasmi KKM/WHO? Jika tiada — jangan teruskan. Gunakan butang CHECK SahihCare.",
+        en: "Is there a sender name? A date? An official KKM/WHO link? If not — do not forward. Use SahihCare’s CHECK button.",
+        zh: "有寄件人姓名吗？有日期吗？有卫生部/世卫官方链接吗？若没有——请勿转发。请用 SahihCare 的 CHECK。",
+        ar: "هل يوجد اسم المرسل؟ تاريخ؟ رابط رسمي؟ إن لم يوجد — لا تعِد الإرسال. استخدم زر CHECK في SahihCare.",
+        ta: "அனுப்புநர் பெயர் உள்ளதா? தேதி உள்ளதா? KKM/WHO இணைப்பு உள்ளதா? இல்லையெனில் பகிர வேண்டாம். SahihCare CHECK-ஐப் பயன்படுத்துங்கள்.",
+      },
+    },
+  ];
 
   var VERDICT_UI = {
     VERIFIED: { card: "bg-emerald-100 text-emerald-800 border-emerald-700", badge: "bg-emerald-700", icon: "fa-solid fa-check" },
@@ -311,9 +367,11 @@
     scaleUp: document.getElementById("scaleUp"),
     tabNews: document.getElementById("tabNews"),
     tabCheck: document.getElementById("tabCheck"),
-    checkHero: document.getElementById("checkHero"),
-    newsHero: document.getElementById("newsHero"),
-    searchPanel: document.getElementById("searchPanel"),
+        checkHero: document.getElementById("checkHero"),
+        newsHero: document.getElementById("newsHero"),
+        checkerPanel: document.getElementById("checkerPanel"),
+        newsPanel: document.getElementById("newsPanel"),
+        searchPanel: document.getElementById("searchPanel"),
     searchBox: document.getElementById("searchBox"),
     claimInput: document.getElementById("claimInput"),
     photoBtn: document.getElementById("photoBtn"),
@@ -336,8 +394,7 @@
     readMoreBtn: document.getElementById("readMoreBtn"),
     resetBtn: document.getElementById("resetBtn"),
     toast: document.getElementById("toast"),
-    scamList: document.getElementById("scamList"),
-    officialList: document.getElementById("officialList"),
+    newsFeed: document.getElementById("newsFeed"),
   };
 
   function t(key) {
@@ -350,12 +407,63 @@
     return (pack.verdicts && pack.verdicts[verdict]) || verdict;
   }
 
-  function fillList(node, items) {
-    node.innerHTML = "";
-    (items || []).forEach(function (html) {
-      var li = document.createElement("li");
-      li.innerHTML = html;
-      node.appendChild(li);
+  function pickLang(map) {
+    if (!map) return "";
+    return map[currentLang] || map.en || map.ms || "";
+  }
+
+  function renderNewsFeed() {
+    if (!els.newsFeed) return;
+    els.newsFeed.innerHTML = "";
+    NEWS_POSTS.forEach(function (post) {
+      var article = document.createElement("article");
+      article.className = "news-card";
+      article.setAttribute("role", "article");
+
+      var media = document.createElement("div");
+      media.className = "news-card__media";
+      var img = document.createElement("img");
+      img.src = post.image;
+      img.alt = pickLang(post.title);
+      img.loading = "lazy";
+      media.appendChild(img);
+
+      var body = document.createElement("div");
+      body.className = "news-card__body";
+
+      var tag = document.createElement("span");
+      tag.className = "news-card__tag news-card__tag--" + post.tag;
+      tag.textContent = (TAG_LABELS[post.tag] && pickLang(TAG_LABELS[post.tag])) || post.tag;
+
+      var title = document.createElement("h2");
+      title.className = "news-card__title";
+      title.textContent = pickLang(post.title);
+
+      var caption = document.createElement("p");
+      caption.className = "news-card__caption";
+      caption.textContent = pickLang(post.caption);
+
+      var sourceRow = document.createElement("div");
+      sourceRow.className = "news-card__source";
+      var sourceLabel = document.createElement("span");
+      sourceLabel.className = "news-card__source-label";
+      sourceLabel.textContent = t("newsSource");
+      var sourceLink = document.createElement("a");
+      sourceLink.href = post.sourceUrl;
+      sourceLink.target = "_blank";
+      sourceLink.rel = "noopener noreferrer";
+      sourceLink.textContent = post.sourceName;
+      sourceRow.appendChild(sourceLabel);
+      sourceRow.appendChild(sourceLink);
+
+      body.appendChild(tag);
+      body.appendChild(title);
+      body.appendChild(caption);
+      body.appendChild(sourceRow);
+
+      article.appendChild(media);
+      article.appendChild(body);
+      els.newsFeed.appendChild(article);
     });
   }
 
@@ -381,8 +489,7 @@
       if (pack[key]) node.setAttribute("aria-label", pack[key]);
     });
 
-    fillList(els.scamList, pack.scamItems);
-    fillList(els.officialList, pack.officialItems);
+    renderNewsFeed();
 
     document.querySelectorAll("#langMenu [data-lang]").forEach(function (btn) {
       btn.classList.toggle("is-active", btn.getAttribute("data-lang") === currentLang);
@@ -468,11 +575,13 @@
     els.tabCheck.setAttribute("aria-selected", isCheck ? "true" : "false");
     els.tabNews.setAttribute("aria-selected", isCheck ? "false" : "true");
     els.tabCheck.classList.toggle("text-brand-deep", isCheck);
-    els.tabCheck.classList.toggle("text-slate-400", !isCheck);
+    els.tabCheck.classList.toggle("text-slate-500", !isCheck);
     els.tabNews.classList.toggle("text-brand-deep", !isCheck);
-    els.tabNews.classList.toggle("text-slate-400", isCheck);
+    els.tabNews.classList.toggle("text-slate-500", isCheck);
     els.checkHero.classList.toggle("hidden", !isCheck);
     els.newsHero.classList.toggle("hidden", isCheck);
+    els.checkerPanel.classList.toggle("hidden", !isCheck);
+    els.newsPanel.classList.toggle("hidden", isCheck);
     els.searchPanel.classList.toggle("hidden", !isCheck || hasResult);
     els.resultCard.classList.toggle("hidden", !isCheck || !hasResult);
     els.pastedPreview.classList.toggle("hidden", !isCheck || !hasResult);
@@ -613,6 +722,7 @@
 
   applyScale();
   applyLanguage();
+  setView("check");
 
   els.scaleDown.addEventListener("click", function () {
     scale = Math.max(SCALE_MIN, scale - SCALE_STEP);
