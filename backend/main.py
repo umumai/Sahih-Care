@@ -31,6 +31,9 @@ def serve_index():
     return FileResponse(index_path)
 
 
+# Mount static assets only if the frontend has actually been built next to
+# this backend — keeps the API runnable standalone (e.g. for the Telegram
+# bot, or API testing) without requiring a frontend/ directory to exist.
 for mount_path, subdir in (("/css", "css"), ("/js", "js"), ("/ASSET", "ASSET")):
     asset_dir = FRONTEND_DIR / subdir
     if asset_dir.is_dir():

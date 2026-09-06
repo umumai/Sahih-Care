@@ -397,7 +397,11 @@ User message:
 
 
 def _image_fallback(language: str) -> HealthAnswer:
-    """Used when Gemini is unavailable for an image request."""
+    """Used when Gemini is unavailable for an image request.
+
+    Unlike the text path, there is no local OCR here, so the honest fallback
+    is to say the image could not be analysed rather than guess a verdict.
+    """
     copies = {
         "ms": (
             "Tidak dapat menganalisis imej sekarang",
@@ -421,15 +425,16 @@ def _image_fallback(language: str) -> HealthAnswer:
         ),
     }
     title, summary = copies.get(language, copies["en"])
-    return HealthAnswer(
-        verdict="UNVERIFIED", title=title, summary=summary, details="", sources=[]
-    )
+    return HealthAnswer(verdict="UNVERIFIED", title=title, summary=summary, details="", sources=[])
 
 
-def ask_gemini_image(
-    image_bytes: bytes, mime_type: str, language: str = "ms"
-) -> HealthAnswer:
-    """Screenshot/photo counterpart to ask_gemini()."""
+def ask_gemini_image(image_bytes: bytes, mime_type: str, language: str = "ms") -> HealthAnswer:
+    """Screenshot/photo counterpart to ask_gemini().
+
+    Returns the same HealthAnswer schema so callers (FastAPI routes, the
+    Telegram bot) don't need separate result-handling logic for text vs image,
+    per the documented API contract.
+    """
     lang = language if language in LANGUAGE_NAMES else "ms"
     lang_name = LANGUAGE_NAMES[lang]
     client = _get_client()
