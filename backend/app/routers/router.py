@@ -1,20 +1,8 @@
 from fastapi import APIRouter
 
-from app.config import get_gemini_api_key
-from app.schemas.request import HealthQuestion
-from app.schemas.response import HealthAnswer
-from app.services.gemini_service import ask_gemini
-
+from app.routers.bulletin_router import router as bulletin_router
+from app.routers.health_router import router as health_router
 
 router = APIRouter()
-
-
-@router.get("/health")
-def healthcheck() -> dict:
-    return {"ok": True, "gemini": bool(get_gemini_api_key())}
-
-
-@router.post("/ask")
-def ask_health_question(payload: HealthQuestion) -> HealthAnswer:
-    return ask_gemini(payload.question, payload.language)
-    return ask_gemini(payload.question, payload.language)
+router.include_router(health_router)
+router.include_router(bulletin_router)
