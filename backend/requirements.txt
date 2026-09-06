@@ -3,5 +3,4 @@ uvicorn[standard]
 google-genai
 python-dotenv
 python-telegram-bot
-python-dotenv
 requests

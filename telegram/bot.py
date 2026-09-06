@@ -16,19 +16,24 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
-env_path = PROJECT_DIR / "backend" / "app" / ".env"
+ENV_CANDIDATES = (
+    PROJECT_DIR / "backend" / ".env",
+    PROJECT_DIR / "backend" / "app" / ".env",
+)
+
+env_path = next((p for p in ENV_CANDIDATES if p.exists()), ENV_CANDIDATES[0])
 
 if not env_path.exists():
-    logger.error(f"Environment file not found at {env_path}")
-    raise RuntimeError(f"Environment file not found at {env_path}")
+    logger.error(f"Environment file not found. Tried: {', '.join(str(p) for p in ENV_CANDIDATES)}")
+    raise RuntimeError("Environment file not found (expected backend/.env or backend/app/.env)")
 
 load_dotenv(env_path)
 logger.info(f"Loaded environment from {env_path}")
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "").strip()
 if not TELEGRAM_TOKEN:
-    logger.error("TELEGRAM_TOKEN is missing or empty in backend/app/.env")
-    raise RuntimeError("TELEGRAM_TOKEN is missing or empty from backend/app/.env")
+    logger.error("TELEGRAM_TOKEN is missing or empty in %s", env_path)
+    raise RuntimeError(f"TELEGRAM_TOKEN is missing or empty from {env_path}")
 logger.info("TELEGRAM_TOKEN loaded successfully")
 
 # Point this at your deployed backend when you go live; defaults to local dev.

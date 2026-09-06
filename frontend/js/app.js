@@ -5,7 +5,7 @@
   var SCALE_MAX = 160;
   var SCALE_STEP = 10;
   var BASE_PX = 18;
-  var API_URL = "/api/ask";
+  var API_URL = "/api/health/check";
 
   var LANGS = {
     ms: { flag: "ASSET/LOGO/melayu.png", dir: "ltr", name: "Bahasa Melayu" },
@@ -50,6 +50,12 @@
       clipboardDenied: "Benarkan akses papan keratan, atau tampal secara manual dalam kotak.",
       photoSoon: "Fungsi foto (OCR) akan datang. Sila tampal teks mesej untuk semakan.",
       unavailable: "Maaf, perkhidmatan semakan tidak tersedia. Cuba lagi.",
+      trustedTitle: "Dipercayai Ramai",
+      totalVisitors: "Jumlah Pelawat",
+      visitorsTrend: "▲ 12% berbanding minggu lalu",
+      telegramFaster: "Lebih Pantas",
+      telegramReady: "Sedia membantu di Telegram",
+      telegramAria: "Buka @sahihcare_bot di Telegram",
       verdicts: {
         VERIFIED: "BENAR",
         FALSE: "FALSE",
@@ -92,6 +98,12 @@
       clipboardDenied: "Allow clipboard access, or paste into the box yourself.",
       photoSoon: "Photo check (OCR) is coming soon. Please paste the message text.",
       unavailable: "Sorry, the checking service is unavailable. Try again.",
+      trustedTitle: "Trusted by Many",
+      totalVisitors: "Total Visitors",
+      visitorsTrend: "▲ 12% vs last week",
+      telegramFaster: "Faster",
+      telegramReady: "Ready to help on Telegram",
+      telegramAria: "Open @sahihcare_bot on Telegram",
       verdicts: {
         VERIFIED: "TRUE",
         FALSE: "FALSE",
@@ -134,6 +146,12 @@
       clipboardDenied: "请允许剪贴板权限，或自行粘贴到输入框。",
       photoSoon: "照片识别即将推出。请先粘贴文字。",
       unavailable: "抱歉，核查服务暂时无法使用。请再试一次。",
+      trustedTitle: "深受信赖",
+      totalVisitors: "总访问量",
+      visitorsTrend: "▲ 较上周增长 12%",
+      telegramFaster: "更快",
+      telegramReady: "Telegram 随时为您服务",
+      telegramAria: "在 Telegram 打开 @sahihcare_bot",
       verdicts: {
         VERIFIED: "属实",
         FALSE: "虚假",
@@ -176,6 +194,12 @@
       clipboardDenied: "اسمح بالوصول إلى الحافظة، أو الصق النص بنفسك.",
       photoSoon: "فحص الصور قادم قريباً. يرجى لصق نص الرسالة.",
       unavailable: "عذراً، خدمة التحقق غير متاحة. حاول مرة أخرى.",
+      trustedTitle: "موثوق به من الكثيرين",
+      totalVisitors: "إجمالي الزوار",
+      visitorsTrend: "▲ 12٪ مقارنة بالأسبوع الماضي",
+      telegramFaster: "أسرع",
+      telegramReady: "جاهزون للمساعدة على تيليجرام",
+      telegramAria: "افتح @sahihcare_bot على تيليجرام",
       verdicts: {
         VERIFIED: "صحيح",
         FALSE: "زائف",
@@ -218,6 +242,12 @@
       clipboardDenied: "கிளிப்போர்டு அனுமதியை அளிக்கவும், அல்லது நீங்களே ஒட்டவும்.",
       photoSoon: "புகைப்படச் சரிபார்ப்பு விரைவில் வரும். செய்தி உரையை ஒட்டவும்.",
       unavailable: "மன்னிக்கவும், சரிபார்ப்பு சேவை கிடைக்கவில்லை. மீண்டும் முயற்சிக்கவும்.",
+      trustedTitle: "பலரால் நம்பப்படுகிறது",
+      totalVisitors: "மொத்த பார்வையாளர்கள்",
+      visitorsTrend: "▲ கடந்த வாரத்தை விட 12%",
+      telegramFaster: "வேகமாக",
+      telegramReady: "டெலிகிராமில் உதவ தயார்",
+      telegramAria: "டெலிகிராமில் @sahihcare_bot ஐத் திறக்கவும்",
       verdicts: {
         VERIFIED: "உண்மை",
         FALSE: "பொய்",
@@ -520,11 +550,11 @@
     els.langBtn.setAttribute("aria-expanded", shouldHide ? "false" : "true");
   }
 
-  async function fetchCheck(question) {
+  async function fetchCheck(message) {
     var response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: question, language: currentLang }),
+      body: JSON.stringify({ message: message, language: currentLang }),
     });
     if (!response.ok) {
       throw new Error("Backend error");
