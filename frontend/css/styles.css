@@ -46,15 +46,25 @@ body {
   }
 
   .content-shell {
-    max-width: 640px;
+    max-width: 820px;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  #searchPanel,
+  #searchBox,
+  #checkBtn {
+    width: 100%;
+    max-width: none;
   }
 }
 
 @media (min-width: 1100px) {
   .content-shell {
-    max-width: 720px;
+    max-width: 980px;
   }
 }
 
@@ -206,6 +216,12 @@ html[dir="rtl"] .lang-menu {
   box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.12);
 }
 
+#claimInput {
+  min-height: 11rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
 #claimInput::placeholder {
   color: #0f766e;
   opacity: 0.72;
@@ -219,6 +235,22 @@ html[dir="rtl"] .lang-menu {
 
 html[dir="rtl"] #claimInput.is-empty {
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  #claimInput {
+    min-height: 14rem;
+  }
+
+  #searchBox {
+    padding-bottom: 4.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  #claimInput {
+    min-height: 16rem;
+  }
 }
 
 .shake {
