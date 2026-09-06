@@ -17,3 +17,9 @@ class HealthAnswer(BaseModel):
     summary: str
     details: str = ""
     sources: list[HealthSource] = Field(default_factory=list)
+
+
+class VerifyResponse(BaseModel):
+    status: Verdict
+    explanation: str
+

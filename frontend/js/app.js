@@ -5,7 +5,7 @@
   var SCALE_MAX = 160;
   var SCALE_STEP = 10;
   var BASE_PX = 18;
-  var API_URL = "/api/ask";
+  var API_URL = "/verify";
 
   var LANGS = {
     ms: { flag: "ASSET/LOGO/melayu.png", dir: "ltr", name: "Bahasa Melayu" },
@@ -37,12 +37,13 @@
       readMore: "BACA LAGI ▾",
       readLess: "TUTUP ▴",
       officialSources: "Sumber rasmi",
-      checkAnother: "Semak mesej lain",
+      checkAnother: "Semak Lagi",
       pasteLabel: "Tampal mesej kesihatan di sini",
       pastePlaceholder: "Tampal mesej WhatsApp di sini...",
       photo: "Foto",
       paste: "Tampal",
       check: "SEMAK SEKARANG",
+      checking: "Menyemak...",
       healthInfo: "Maklumat kesihatan",
       empty: "Sila tampal atau taip mesej kesihatan dahulu.",
       clipboardUnsupported: "Tidak dapat baca papan keratan. Tekan lama dalam kotak dan pilih Tampal.",
@@ -79,12 +80,13 @@
       readMore: "READ MORE ▾",
       readLess: "READ LESS ▴",
       officialSources: "Official sources",
-      checkAnother: "Check another message",
+      checkAnother: "Check again",
       pasteLabel: "Paste a health message here",
       pastePlaceholder: "Paste WhatsApp message here...",
       photo: "Photo",
       paste: "Paste",
       check: "CHECK NOW",
+      checking: "Checking...",
       healthInfo: "Health information",
       empty: "Please paste or type a health message first.",
       clipboardUnsupported: "Cannot read the clipboard. Long-press in the box and choose Paste.",
@@ -127,6 +129,7 @@
       photo: "照片",
       paste: "粘贴",
       check: "核查",
+      checking: "核查中...",
       healthInfo: "健康资讯",
       empty: "请先粘贴或输入健康讯息。",
       clipboardUnsupported: "无法读取剪贴板。请在输入框长按并选择粘贴。",
@@ -169,6 +172,7 @@
       photo: "صورة",
       paste: "لصق",
       check: "تحقق",
+      checking: "جاري التحقق...",
       healthInfo: "معلومات صحية",
       empty: "يرجى لصق أو كتابة رسالة صحية أولاً.",
       clipboardUnsupported: "تعذر قراءة الحافظة. اضغط مطولاً في الصندوق واختر لصق.",
@@ -211,6 +215,7 @@
       photo: "புகைப்படம்",
       paste: "ஒட்டு",
       check: "சரிபார்",
+      checking: "சரிபார்க்கிறது...",
       healthInfo: "சுகாதாரத் தகவல்",
       empty: "முதலில் ஒரு சுகாதாரச் செய்தியை ஒட்டவும் அல்லது தட்டச்சு செய்யவும்.",
       clipboardUnsupported: "கிளிப்போர்டைப் படிக்க முடியவில்லை. பெட்டியில் நீண்ட நேரம் அழுத்தி ஒட்டு என்பதைத் தேர்வு செய்யவும்.",
@@ -520,23 +525,24 @@
     els.langBtn.setAttribute("aria-expanded", shouldHide ? "false" : "true");
   }
 
-  async function fetchCheck(question) {
+  async function fetchCheck(message) {
     var response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: question, language: currentLang }),
+      body: JSON.stringify({ message: message }),
     });
     if (!response.ok) {
       throw new Error("Backend error");
     }
     var data = await response.json();
-    var verdict = String(data.verdict || "UNVERIFIED").toUpperCase();
-    if (!VERDICT_UI[verdict]) verdict = "UNVERIFIED";
+    var status = String(data.status || data.verdict || "UNVERIFIED").toUpperCase();
+    if (!VERDICT_UI[status]) status = "UNVERIFIED";
+    var explanation = String(data.explanation || data.summary || "").trim();
     return {
-      verdict: verdict,
-      title: data.title || "",
-      summary: data.summary || "",
-      details: data.details || "",
+      verdict: status,
+      title: verdictLabel(status),
+      summary: explanation,
+      details: explanation,
       sources: data.sources || [],
     };
   }
@@ -651,8 +657,8 @@
   }
 
   async function onCheck() {
-    var question = els.claimInput.value.trim();
-    if (!question) {
+    var message = els.claimInput.value.trim();
+    if (!message) {
       els.searchBox.classList.remove("shake");
       void els.searchBox.offsetWidth;
       els.searchBox.classList.add("shake");
@@ -663,7 +669,8 @@
 
     els.toast.classList.add("hidden");
     els.checkBtn.disabled = true;
-    els.pastedText.textContent = question;
+    els.checkBtn.textContent = t("checking");
+    els.pastedText.textContent = message;
     els.pastedPreview.classList.remove("hidden");
     els.loadingState.classList.remove("hidden");
     els.loadingState.classList.add("flex");
@@ -671,7 +678,7 @@
     document.getElementById("main").setAttribute("aria-busy", "true");
 
     try {
-      var data = await fetchCheck(question);
+      var data = await fetchCheck(message);
       els.loadingState.classList.add("hidden");
       els.loadingState.classList.remove("flex");
       renderResult(data);
@@ -683,6 +690,7 @@
       showSearch();
     } finally {
       els.checkBtn.disabled = false;
+      els.checkBtn.textContent = t("check");
       document.getElementById("main").setAttribute("aria-busy", "false");
     }
   }

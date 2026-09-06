@@ -19,6 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(router, prefix="/api")
+app.include_router(router)  # also expose /verify and /ask at root for same-origin StaticFiles apps
 
 
 @app.api_route("/", methods=["GET", "HEAD"])
