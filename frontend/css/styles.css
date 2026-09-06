@@ -12,12 +12,50 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Noto Sans", "Noto Sans Tamil", "Noto Naskh Arabic", "Helvetica Neue", Arial,
     sans-serif;
-  background: #cbd5e1;
+  background:
+    radial-gradient(ellipse at top, rgba(20, 184, 166, 0.18), transparent 55%),
+    linear-gradient(180deg, #d1fae5 0%, #cbd5e1 45%, #94a3b8 100%);
   color: #134e4a;
+  min-height: 100vh;
 }
 
 #app {
-  max-width: 430px;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--brand-mint);
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 0;
+    background: var(--brand-mint);
+  }
+
+  #app {
+    max-width: none;
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .hero-photo {
+    min-height: 240px;
+  }
+
+  .content-shell {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1100px) {
+  .content-shell {
+    max-width: 720px;
+  }
 }
 
 .hero-photo {
@@ -37,13 +75,19 @@ body {
 }
 
 .header-logo {
-  height: 3rem;
+  height: 3.1rem;
   width: auto;
-  max-width: 12rem;
+  max-width: 11.5rem;
   object-fit: contain;
-  background: #ffffff;
-  border-radius: 0.75rem;
-  padding: 0.05rem 0.15rem;
+  background: transparent;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .header-logo {
+    height: 3.5rem;
+    max-width: 13rem;
+  }
 }
 
 .lang-wrap {
@@ -105,14 +149,61 @@ html[dir="rtl"] .lang-menu {
 }
 
 .glass-pill {
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 45%, rgba(20, 184, 166, 0.18) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(15, 118, 110, 0.18),
+    0 8px 20px rgba(15, 118, 110, 0.18);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  overflow: hidden;
+}
+
+.glass-pill::before {
+  content: "";
+  position: absolute;
+  inset: 1px 18% auto 18%;
+  height: 42%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  pointer-events: none;
 }
 
 .mode-pill {
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.18);
+  position: relative;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72) 0%, rgba(240, 253, 250, 0.45) 48%, rgba(255, 255, 255, 0.28) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(15, 118, 110, 0.08),
+    0 10px 28px rgba(15, 118, 110, 0.2);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  overflow: hidden;
+}
+
+.mode-pill::before {
+  content: "";
+  position: absolute;
+  inset: 2px 20% auto 20%;
+  height: 40%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.mode-pill button {
+  position: relative;
+  z-index: 1;
+}
+
+.mode-pill button[aria-selected="true"] {
+  background: rgba(15, 118, 110, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.12);
 }
 
 #claimInput::placeholder {
@@ -193,4 +284,126 @@ button:disabled {
 html[dir="rtl"] #sourceList {
   padding-left: 0;
   padding-right: 1.25rem;
+}
+
+.news-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.news-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(15, 118, 110, 0.1);
+}
+
+.news-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #ccfbf1;
+  overflow: hidden;
+}
+
+.news-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.news-card__media::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.45));
+  pointer-events: none;
+}
+
+.news-card__body {
+  padding: 0.95rem 1rem 1.1rem;
+}
+
+.news-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.55rem;
+}
+
+.news-card__tag--alert {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.news-card__tag--misleading {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.news-card__tag--verified {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.news-card__tag--guide {
+  background: #ccfbf1;
+  color: #0f766e;
+}
+
+.news-card__title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #0f172a;
+  margin: 0 0 0.45rem;
+}
+
+.news-card__caption {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.news-card__source {
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(15, 118, 110, 0.12);
+}
+
+.news-card__source-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.news-card__source a {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0f766e;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .news-card__media {
+    aspect-ratio: 16 / 10;
+  }
 }
