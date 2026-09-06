@@ -5,7 +5,7 @@
   var SCALE_MAX = 160;
   var SCALE_STEP = 10;
   var BASE_PX = 18;
-  var API_URL = "/api/ask";
+  var API_URL = "/api/health/check";
 
   var LANGS = {
     ms: { flag: "ASSET/LOGO/melayu.png", dir: "ltr", name: "Bahasa Melayu" },
@@ -520,11 +520,11 @@
     els.langBtn.setAttribute("aria-expanded", shouldHide ? "false" : "true");
   }
 
-  async function fetchCheck(question) {
+  async function fetchCheck(message) {
     var response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: question, language: currentLang }),
+      body: JSON.stringify({ message: message, language: currentLang }),
     });
     if (!response.ok) {
       throw new Error("Backend error");
