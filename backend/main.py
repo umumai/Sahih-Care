@@ -19,14 +19,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(router, prefix="/api")
-app.include_router(router)  # also expose /verify and /ask at root for same-origin StaticFiles apps
+# Same-origin frontend calls POST /verify at the root.
+app.include_router(router)
 
 
 @app.api_route("/", methods=["GET", "HEAD"])
 def serve_index():
-    return FileResponse(FRONTEND_DIR / "index.html")
+    index_path = FRONTEND_DIR / "index.html"
+    if not index_path.exists():
+        return {"ok": True, "message": "Sahih Care API is running. See /docs for the API."}
+    return FileResponse(index_path)
 
 
-app.mount("/css", StaticFiles(directory=FRONTEND_DIR / "css"), name="css")
-app.mount("/js", StaticFiles(directory=FRONTEND_DIR / "js"), name="js")
-app.mount("/ASSET", StaticFiles(directory=FRONTEND_DIR / "ASSET"), name="assets")
+for mount_path, subdir in (("/css", "css"), ("/js", "js"), ("/ASSET", "ASSET")):
+    asset_dir = FRONTEND_DIR / subdir
+    if asset_dir.is_dir():
+        app.mount(mount_path, StaticFiles(directory=asset_dir), name=subdir)

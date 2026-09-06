@@ -40,3 +40,21 @@ def get_gemini_model() -> str:
 
 GEMINI_API_KEY = get_gemini_api_key()
 GEMINI_MODEL = get_gemini_model()
+
+# Static MVP data (GET /api/bulletins).
+_BULLETIN_CANDIDATES = (
+    BACKEND_DIR / "data" / "bulletins.json",
+    PROJECT_DIR / "data" / "bulletins.json",
+)
+BULLETINS_PATH = next(
+    (p for p in _BULLETIN_CANDIDATES if p.exists()), _BULLETIN_CANDIDATES[0]
+)
+
+MAX_IMAGE_BYTES = 8 * 1024 * 1024  # 8 MB
+ALLOWED_IMAGE_MIME_TYPES = {
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "image/heic",
+    "image/heif",
+}
