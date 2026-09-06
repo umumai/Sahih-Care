@@ -3,6 +3,7 @@ import re
 import traceback
 
 from google import genai
+from google.genai import types
 
 from app.config import get_gemini_api_key, get_gemini_model
 from app.prompts.health_prompt import LANGUAGE_NAMES, prompt_setup
@@ -393,3 +394,91 @@ User message:
 
     print(f"Falling back to local checker after Gemini error: {last_error}")
     return _local_check(question, lang)
+
+
+def _image_fallback(language: str) -> HealthAnswer:
+    """Used when Gemini is unavailable for an image request.
+
+    Unlike the text path, there is no local OCR here, so the honest fallback
+    is to say the image could not be analysed rather than guess a verdict.
+    """
+    copies = {
+        "ms": (
+            "Tidak dapat menganalisis imej sekarang",
+            "Perkhidmatan AI sedang tidak tersedia. Sila cuba lagi sebentar, atau taipkan mesej/tuntutan tersebut sebagai teks.",
+        ),
+        "en": (
+            "Could not analyse the image right now",
+            "The AI service is temporarily unavailable. Please try again shortly, or paste the claim as text instead.",
+        ),
+        "zh": (
+            "暂时无法分析该图片",
+            "AI 服务暂时无法使用。请稍后重试，或直接将该说法以文字形式粘贴。",
+        ),
+        "ar": (
+            "تعذّر تحليل الصورة حالياً",
+            "خدمة الذكاء الاصطناعي غير متاحة مؤقتاً. يرجى المحاولة لاحقاً، أو لصق الادعاء كنص بدلاً من ذلك.",
+        ),
+        "ta": (
+            "படத்தை இப்போது பகுப்பாய்வு செய்ய முடியவில்லை",
+            "AI சேவை தற்காலிகமாகக் கிடைக்கவில்லை. சிறிது நேரம் கழித்து முயற்சிக்கவும், அல்லது கூற்றை உரையாகப் பேஸ்ட் செய்யவும்.",
+        ),
+    }
+    title, summary = copies.get(language, copies["en"])
+    return HealthAnswer(verdict="UNVERIFIED", title=title, summary=summary, details="", sources=[])
+
+
+def ask_gemini_image(image_bytes: bytes, mime_type: str, language: str = "ms") -> HealthAnswer:
+    """Screenshot/photo counterpart to ask_gemini().
+
+    Returns the same HealthAnswer schema so callers (FastAPI routes, the
+    Telegram bot) don't need separate result-handling logic for text vs image,
+    per the documented API contract.
+    """
+    lang = language if language in LANGUAGE_NAMES else "ms"
+    lang_name = LANGUAGE_NAMES[lang]
+    client = _get_client()
+
+    if client is None:
+        print("GEMINI_API_KEY missing; cannot analyse image locally")
+        return _image_fallback(lang)
+
+    prompt = f"""{prompt_setup}
+
+The user has sent a SCREENSHOT or photo instead of typed text (e.g. a forwarded
+WhatsApp message, social media post, or news clipping). First read any visible
+text in the image and identify the health claim being made, then evaluate it
+using the same rules above. If the image contains no readable health-related
+claim, return NOT_HEALTH.
+
+UI language: {lang_name}
+Write title, summary, and details in {lang_name}.
+"""
+
+    image_part = types.Part.from_bytes(data=image_bytes, mime_type=mime_type)
+    preferred = get_gemini_model()
+    models = [preferred] + [m for m in MODEL_CANDIDATES if m != preferred]
+    last_error = None
+
+    for model in models:
+        try:
+            response = _call_gemini(client, model, [prompt, image_part])
+            raw = (getattr(response, "text", None) or "").strip()
+            if raw == "NOT_HEALTH":
+                copy = _not_health_copy(lang)
+                return HealthAnswer(
+                    verdict="NOT_HEALTH",
+                    title=copy["title"],
+                    summary=copy["summary"],
+                    details="",
+                    sources=[],
+                )
+            data = _extract_json(raw)
+            return _to_answer(data, lang)
+        except Exception as exc:
+            last_error = exc
+            print(f"Gemini image model {model} failed: {exc}")
+            traceback.print_exc()
+
+    print(f"Falling back after Gemini image error: {last_error}")
+    return _image_fallback(lang)
