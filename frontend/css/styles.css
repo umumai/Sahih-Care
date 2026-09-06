@@ -1,0 +1,196 @@
+:root {
+  --brand-deep: #0f766e;
+  --brand-bright: #14b8a6;
+  --brand-mint: #f0fdfa;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Noto Sans", "Noto Sans Tamil", "Noto Naskh Arabic", "Helvetica Neue", Arial,
+    sans-serif;
+  background: #cbd5e1;
+  color: #134e4a;
+}
+
+#app {
+  max-width: 430px;
+}
+
+.hero-photo {
+  background-image:
+    linear-gradient(180deg, rgba(15, 118, 110, 0.08) 0%, rgba(240, 253, 250, 0.35) 52%, #f0fdfa 100%),
+    url("../ASSET/background.png");
+  background-size: cover;
+  background-position: center top;
+}
+
+.header-bar {
+  background: linear-gradient(90deg, #0f766e 0%, #0d9488 55%, #0f766e 100%);
+}
+
+.footer-bar {
+  background: linear-gradient(90deg, #0f766e 0%, #14b8a6 100%);
+}
+
+.header-logo {
+  height: 3rem;
+  width: auto;
+  max-width: 12rem;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.05rem 0.15rem;
+}
+
+.lang-wrap {
+  position: relative;
+}
+
+.flag-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  padding: 0;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.flag-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.15);
+}
+
+.flag-btn.is-active {
+  box-shadow: 0 0 0 2px #14b8a6;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  display: flex;
+  gap: 0.4rem;
+  background: rgba(15, 118, 110, 0.96);
+  padding: 0.45rem;
+  border-radius: 999px;
+  z-index: 60;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+html[dir="rtl"] .lang-menu {
+  right: auto;
+  left: 0;
+}
+
+.check-btn {
+  background: linear-gradient(90deg, #14b8a6 0%, #0f766e 100%);
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.35);
+}
+
+.check-btn:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.check-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.mode-pill {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.18);
+}
+
+#claimInput::placeholder {
+  color: #0f766e;
+  opacity: 0.72;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+#claimInput.is-empty {
+  text-align: center;
+}
+
+html[dir="rtl"] #claimInput.is-empty {
+  text-align: center;
+}
+
+.shake {
+  animation: shake 0.45s ease;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.spin-slow {
+  animation: spin 1.4s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shake,
+  .spin-slow,
+  .check-btn {
+    animation: none;
+    transition: none;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+*:focus-visible {
+  outline: 3px solid #14b8a6;
+  outline-offset: 3px;
+}
+
+html[dir="rtl"] #sourceList {
+  padding-left: 0;
+  padding-right: 1.25rem;
+}
